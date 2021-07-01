@@ -96,8 +96,9 @@ public class ScratchUI : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         // 获取刮的位置的ui局部坐标
         var uiLocalPos = ScreenPosToUiLocalPos(position, rectTransform, canvas.worldCamera);
         // 将局部坐标转化为uv坐标
-        var uvX = (rectTransform.sizeDelta.x / 2f + uiLocalPos.x) / rectTransform.sizeDelta.x;
-        var uvY = (rectTransform.sizeDelta.y / 2f + uiLocalPos.y) / rectTransform.sizeDelta.y;
+        var sizeDelta = rectTransform.sizeDelta;
+        var uvX = (sizeDelta.x / 2f + uiLocalPos.x) / sizeDelta.x;
+        var uvY = (sizeDelta.y / 2f + uiLocalPos.y) / sizeDelta.y;
         // 将uv坐标转化为Graphics坐标
         var x = (int)(uvX * renderTexture.width);
         // 注意，uv坐标系和Graphics坐标系的y轴方向相反

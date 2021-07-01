@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,5 +18,15 @@ public class RotationObject : MonoBehaviour
         // speed += Time.deltaTime * 10;
         // transform.rotation = Quaternion.Euler(0,speed,0);
         transform.Rotate(Vector3.up * (Time.deltaTime * speed));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("onTriggerEnter");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("OnTriggerExit");
     }
 }
