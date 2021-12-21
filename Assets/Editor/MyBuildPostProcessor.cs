@@ -28,11 +28,11 @@ public class MyBuildPostprocessor
 
                 if (backend == UnityEditor.ScriptingImplementation.IL2CPP)
                 {
-                        CopyAndroidIL2CPPSymbols(pathToBuiltProject, PlayerSettings.Android.targetDevice);
+                        CopyAndroidIL2CPPSymbols(pathToBuiltProject, PlayerSettings.Android.targetArchitectures);
                 }
         }
 
-        public static void CopyAndroidIL2CPPSymbols(string pathToBuiltProject, AndroidTargetDevice targetDevice)
+        public static void CopyAndroidIL2CPPSymbols(string pathToBuiltProject, AndroidArchitecture targetDevice)
         {
                 string buildName = Path.GetFileNameWithoutExtension(pathToBuiltProject);
                 FileInfo fileInfo = new FileInfo(pathToBuiltProject);
@@ -68,9 +68,9 @@ public class MyBuildPostprocessor
         const string libFilename = "libil2cpp.so";
         private static void CopyARMSymbols(string symbolsDir)
         {
-                string sourcefileARM = Application.dataPath + libpath + "armeabi-v7a/" + libFilename;
-                CreateDir(symbolsDir + "/armeabi-v7a/");
-                File.Copy(sourcefileARM, symbolsDir + "/armeabi-v7a/libil2cpp.so");
+                // string sourcefileARM = Application.dataPath + libpath + "armeabi-v7a/" + libFilename;
+                // CreateDir(symbolsDir + "/armeabi-v7a/");
+                // File.Copy(sourcefileARM, symbolsDir + "/armeabi-v7a/libil2cpp.so");
         }
 
         // private static void CopyX86Symbols(string symbolsDir)
